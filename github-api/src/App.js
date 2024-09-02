@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const getData = () => {
-      fetch('https://api.github.com/SumeyraSeyma/repos')
+      fetch('https://api.github.com/users')
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
