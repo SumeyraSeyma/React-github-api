@@ -7,7 +7,7 @@ import './output.css';
 
 function App() {
   const [data, setData] = useState([]);
-  const [user, setUser] = useState('SumeyraSeyma');
+  const [user, setUser] = useState('');
   
   function debounce(func, wait) {
     let timeout;
