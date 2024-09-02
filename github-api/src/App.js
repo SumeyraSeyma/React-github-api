@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="App my-10 ">
-      <div className='buttons outline outline-offset-2 outline-1 rounded-md h-16 '>
+      <div className='buttons shadow-xl outline outline-offset-2 outline-1 rounded-md h-16 '>
       <input type="text" placeholder="Search for User" onChange={(e) => setUser(e.target.value)} 
       className="input_search outline outline-offset-2 outline-1 rounded-md h-10 w-80 " />
       <button onClick={getData} className="search_button outline outline-offset-2 outline-2 w-40 h-10 rounded-md mx-4 ">Search Github</button>

@@ -12,7 +12,7 @@ function List({ data}) {
 
   return (
     <div>
-        <ul>
+        <img src={data.avatar_url} alt='avatar' height={200} width={200} />
         <li>Kullanıcı Adı: {data.login}</li>
         <li>ID: {data.id}</li>
         <li>Profile URL: <a href={data.html_url}>{data.html_url}</a></li>
@@ -25,8 +25,6 @@ function List({ data}) {
         <li>Email: {data.email}</li>
         <li>Bio: {data.bio}</li>
         <li>Node ID: {data.node_id}</li>
-        <li>Avatar URL: <img src={data.avatar_url} alt='avatar' height={100} width={100} /></li>
-      </ul>
 
       <h3>Repositories</h3>
       {
