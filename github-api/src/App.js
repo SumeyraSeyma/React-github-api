@@ -1,10 +1,13 @@
 import { useEffect,useState } from 'react';
 import './App.css';
 import List from './components/List/List';
+import './output.css';
+
+
 
 function App() {
   const [data, setData] = useState([]);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('SumeyraSeyma');
   
   function debounce(func, wait) {
     let timeout;
@@ -18,15 +21,26 @@ function App() {
   
 
     const getData = () => {
-      return fetch(`https://api.github.com/users/${user}`) 
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => setData(data))
-        .catch((error) => console.error('Error fetching data:', error));
+      const token = process.env.REACT_APP_GITHUB_TOKEN;
+      Promise.all([
+      fetch(`https://api.github.com/users/${user}`,{
+        headers: {
+          'Authorization': `token ${token}`
+      }
+      }).then((response) => response.json()),
+        fetch(`https://api.github.com/users/${user}/repos`,{
+        headers: {
+          'Authorization': `token ${token}`
+      }
+      }).then((response) => response.json())
+    ]) 
+    .then(([userData, userRepos]) => {
+      setData({
+        ...userData, // Kullanıcı verileri
+        repos: userRepos // Repos'ları `data` prop'u içinde birleştiriyoruz
+      });
+    })
+    .catch((error) => console.error('Error fetching data:', error));
   }
 
   const debouncedGetData = debounce(getData, 5000);
@@ -39,9 +53,12 @@ function App() {
 
 
   return (
-    <div className="App">
-      <input type="text" placeholder="Search for User" onChange={(e) => setUser(e.target.value)} className="input_search" />
-      <button onClick={getData} className="search_button">Search Github</button>
+    <div className="App my-10 ">
+      <div className='buttons outline outline-offset-2 outline-1 rounded-md h-16 '>
+      <input type="text" placeholder="Search for User" onChange={(e) => setUser(e.target.value)} 
+      className="input_search outline outline-offset-2 outline-1 rounded-md h-10 w-80 " />
+      <button onClick={getData} className="search_button outline outline-offset-2 outline-2 w-40 h-10 rounded-md mx-4 ">Search Github</button>
+      </div>
       <List data={data} />
     </div>
   );

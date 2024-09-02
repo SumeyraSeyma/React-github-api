@@ -1,13 +1,14 @@
 import React from 'react'
 
-function List({ data }) {
+
+
+function List({ data}) {
     if ( !data ) {
         return <div> No data </div>
-    } else if (!Array.isArray(data)) {
-        <div> Data is not an array </div>
     }else if (data.login === undefined) {
-        return <div> No data </div>
+        return <div> No user data </div>
     }
+
 
   return (
     <div>
@@ -24,8 +25,25 @@ function List({ data }) {
         <li>Email: {data.email}</li>
         <li>Bio: {data.bio}</li>
         <li>Node ID: {data.node_id}</li>
-        <li>Avatar URL: <img src={data.avatar_url} alt={data.login} /></li>
+        <li>Avatar URL: <img src={data.avatar_url} alt='avatar' height={100} width={100} /></li>
       </ul>
+
+      <h3>Repositories</h3>
+      {
+        data.repos.length > 0 ? (
+            <ul>
+                {
+                data.repos && data.repos.map((repo) => (
+                    <li key={repo.id}>
+                    <a href={repo.html_url}>{repo.name}</a>
+                    </li>
+                ))
+                }
+            </ul>
+            ) : (
+            <div>No Repositories</div>
+        )
+      }
     </div>
   )
 }
