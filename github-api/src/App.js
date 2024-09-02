@@ -8,10 +8,15 @@ function App() {
 
   useEffect(() => {
     const getData = () => {
-      fetch('https://api.github.com/users')
-        .then((response) => response.json())
-        .then(data => setData(data.results))
-        .catch((error) => console.error(error));
+      fetch('https://api.github.com/SumeyraSeyma/repos')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => setData(data))
+        .catch((error) => console.error('Error fetching data:', error));
   }
   getData();
 }, []);

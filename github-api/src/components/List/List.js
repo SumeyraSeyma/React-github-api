@@ -7,7 +7,7 @@ function List({ data }) {
     <div>
         <ul>
         {data && data.map((item, index) => (
-          <li key={index}>{item.name}</li>
+          <li key={index}>{item.login}</li>
         ))}
         </ul>
     </div>
