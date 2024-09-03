@@ -4963,6 +4963,11 @@ get-symbol-description@^1.0.2:
     es-errors "^1.3.0"
     get-intrinsic "^1.2.4"
 
+github-lang-colors@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/github-lang-colors/-/github-lang-colors-1.0.4.tgz"
+  integrity sha512-mcVjjfkXclpqaFAwznfm2iHqXVZzDyc7rBqAcCgX0ErYTPAB0ROeMoUSf/ifmwTrImo9XjpQYcs9i0jFbQCiqA==
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz"
