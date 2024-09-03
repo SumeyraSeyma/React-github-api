@@ -128,7 +128,7 @@ function List({ data}) {
         </span>
       </div>
               
-      <h3 className='mb-3 mt-3 underline decoration-emerald-500 text-gray-800' style={{
+      <h3 className='mb-3 mt-3 font-semibold underline decoration-blue-950 text-gray-800' style={{
         fontStyle: 'italic',
       }} >Repositories</h3>
       {
@@ -137,8 +137,8 @@ function List({ data}) {
                 {
                 data.repos && data.repos.map((repo) => (
                     <li key={repo.id} className='hover:list-disc '>
-                    <a className='hover:underline hover:decoration-emerald-500' href={repo.html_url}>{repo.name}</a>
-                    <p className=''>{repo.description}</p>
+                    <a className='hover:underline hover:decoration-blue-950' href={repo.html_url}>{repo.name}</a>
+                    <p className='bg-red-100'>{repo.description}</p>
                     <p>
                       
                     {

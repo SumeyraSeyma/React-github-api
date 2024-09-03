@@ -53,7 +53,7 @@ function App() {
       className="input_search border p-2 rounded-lg h-10 w-80 " />
       <button 
       onClick={getData} 
-      className="search_button bg-green-500 text-white p-2 ml-2 rounded-lg ">
+      className="search_button bg-blue-950 text-white p-2 ml-2 rounded-lg ">
         Search Github</button>
       </div>
       <List data={data} />
