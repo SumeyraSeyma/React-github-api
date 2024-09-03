@@ -1,4 +1,8 @@
 import React from 'react'
+import './List.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faUsers, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -11,28 +15,42 @@ function List({ data}) {
 
 
   return (
-    <div>
-        <img src={data.avatar_url} alt='avatar' height={200} width={200} />
-        <li>Kullanıcı Adı: {data.login}</li>
-        <li>ID: {data.id}</li>
-        <li>Profile URL: <a href={data.html_url}>{data.html_url}</a></li>
-        <li>Followers: {data.followers}</li>
-        <li>Following: {data.following}</li>
-        <li>Public Repos: {data.public_repos}</li>
-        <li>Public Gists: {data.public_gists}</li>
-        <li>Location: {data.location}</li>
-        <li>Company: {data.company}</li>
-        <li>Email: {data.email}</li>
-        <li>Bio: {data.bio}</li>
-        <li>Node ID: {data.node_id}</li>
+    <div className="max-w-xl rounded-lg shadow-lg bg-white p-10">
+      <div className="flex items-center">
+        <img className="rounded-full h-16 w-16" src={data.avatar_url} alt="User Avatar" />
+        <div className="ml-4">
+          <h2 className="text-xl font-bold">{data.name}</h2>
+          <p className="text-gray-500">@{data.login}</p>
+          
+        </div>
+        <a href={data.html_url}
+        style={{marginLeft: 'auto'}} 
+        className="text-gray-800">GitHub</a>
+      </div>
+      <p className="mt-4 text-gray-700">
+        {data.bio }
+      </p>
+      <div className="mt-6 flex justify-between text-gray-600">
+        <span><FontAwesomeIcon icon={faMapMarkerAlt} /> {data.location || "No location"}</span>
+        <span><FontAwesomeIcon icon={faTwitter} /> {data.twitter_username || "No Twitter"}</span>
+        <span><FontAwesomeIcon icon={faUsers} /> {data.followers} Followers</span>
+        <span><FontAwesomeIcon icon={faUserPlus} /> {data.following} Following</span>
+      </div>
+      <div className="mt-4 flex space-x-2">
+        {data.twitter_username && (
+          <a href={`https://twitter.com/${data.twitter_username}`} className="text-blue-500">
+          <FontAwesomeIcon icon={faTwitter} />  Twitter</a>
+        )}
 
-      <h3>Repositories</h3>
+      </div>
+              
+      <h3 className='mb-3 text-gray-800' >Repositories</h3>
       {
         data.repos.length > 0 ? (
-            <ul>
+            <ul className='repo text-gray-700'>
                 {
                 data.repos && data.repos.map((repo) => (
-                    <li key={repo.id}>
+                    <li key={repo.id} className='hover:list-disc'>
                     <a href={repo.html_url}>{repo.name}</a>
                     </li>
                 ))
@@ -43,7 +61,7 @@ function List({ data}) {
         )
       }
     </div>
-  )
+    
+  );
 }
-
 export default List

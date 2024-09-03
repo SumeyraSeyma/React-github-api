@@ -7,7 +7,7 @@ import './output.css';
 
 function App() {
   const [data, setData] = useState([]);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState('SumeyraSeyma');
   
   function debounce(func, wait) {
     let timeout;
@@ -54,10 +54,17 @@ function App() {
 
   return (
     <div className="App my-10 ">
-      <div className='buttons shadow-xl outline outline-offset-2 outline-1 rounded-md h-16 '>
-      <input type="text" placeholder="Search for User" onChange={(e) => setUser(e.target.value)} 
-      className="input_search outline outline-offset-2 outline-1 rounded-md h-10 w-80 " />
-      <button onClick={getData} className="search_button outline outline-offset-2 outline-2 w-40 h-10 rounded-md mx-4 ">Search Github</button>
+      <div 
+      className='buttons flex justify-center items-center p-4 rounded-md h-16 '>
+      <input 
+      type="text" 
+      placeholder="Search for User" 
+      onChange={(e) => setUser(e.target.value)} 
+      className="input_search border p-2 rounded-lg h-10 w-80 " />
+      <button 
+      onClick={getData} 
+      className="search_button bg-green-500 text-white p-2 ml-2 rounded-lg ">
+        Search Github</button>
       </div>
       <List data={data} />
     </div>
