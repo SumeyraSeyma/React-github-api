@@ -8,17 +8,7 @@ import './output.css';
 function App() {
   const [data, setData] = useState([]);
   const [user, setUser] = useState('');
-  
-  function debounce(func, wait) {
-    let timeout;
-  
-    return function(...args) {
-      const context = this;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-  }
-  
+
 
     const getData = () => {
       const token = process.env.REACT_APP_GITHUB_TOKEN;
@@ -43,11 +33,11 @@ function App() {
     .catch((error) => console.error('Error fetching data:', error));
   }
 
-  const debouncedGetData = debounce(getData, 5000);
+
 
   useEffect(() => {
     if (user) {
-      debouncedGetData();
+      getData();
     }
   }, [user]);
 
@@ -55,7 +45,7 @@ function App() {
   return (
     <div className="App my-10 ">
       <div 
-      className='buttons flex justify-center items-center p-4 rounded-md h-16 '>
+      className='buttons shadow-lg max-w-xl flex justify-center items-center p-4 rounded-md h-16 '>
       <input 
       type="text" 
       placeholder="Search for User" 

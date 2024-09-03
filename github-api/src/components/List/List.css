@@ -1,5 +1,10 @@
 .repo{
     list-style-type: circle;
     list-style-position: inside;
+    font-style: italic;
+    background-color: #f9f9f9;
+    
 }
+
+
 
