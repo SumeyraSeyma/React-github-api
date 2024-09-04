@@ -1,4 +1,4 @@
-.repo{
+#repos{
     list-style-type: circle;
     list-style-position: inside;
     font-style: italic;
@@ -8,6 +8,8 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 500px;
+    z-index: 2;
+
 }
 
 .transparent {
@@ -15,10 +17,6 @@
     padding: 10px; 
     border-radius: 8px;
   }
-
-#repos{
-  z-index: 2;
-}
   
   #cart {
     position: relative;

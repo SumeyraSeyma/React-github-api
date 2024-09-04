@@ -135,7 +135,7 @@ function List({ data}) {
       }} >Repositories</h3>
       {
         data.repos.length > 0 ? (
-            <ul id='repos' className='repo  text-gray-700'>
+            <ul id='repos' className=' text-gray-700'>
                 {
                 data.repos && data.repos.map((repo) => (
                     <li key={repo.id} className='hover:list-disc '>
