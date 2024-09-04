@@ -2,6 +2,7 @@ import { useEffect,useState } from 'react';
 import './App.css';
 import List from './components/List/List';
 import './output.css';
+import './components/List/List.css';
 
 
 
@@ -43,17 +44,22 @@ function App() {
 
 
   return (
-    <div className="App my-10 ">
-      <div 
-      className='buttons shadow-lg max-w-xl flex justify-center items-center p-4 mb-6 rounded-md h-16 '>
+    <div
+    id='App' 
+    className=" my-10 ">
+      <div
+      id='header' 
+      className='shadow-lg flex justify-center items-center p-4 mb-6 rounded-md h-16 '>
       <input 
       type="text" 
       placeholder="Enter Github Username" 
-      onChange={(e) => setUser(e.target.value)} 
-      className="input_search border p-2 rounded-lg h-10 w-80 " />
+      onChange={(e) => setUser(e.target.value)}
+      id='input_search' 
+      className=" border p-2 rounded-lg h-10 w-80 " />
       <button 
-      onClick={getData} 
-      className="search_button bg-blue-950 text-white p-2 ml-2 rounded-lg ">
+      onClick={getData}
+      id='search_button' 
+      className=" bg-blue-950 text-white p-2 ml-2 rounded-lg ">
         Search Github</button>
       </div>
       <List data={data} />

@@ -7,8 +7,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 
-
 function List({ data}) {
+
     if ( !data ) {
         return <div> No data </div>
     }else if (data.login === undefined) {
@@ -95,25 +95,27 @@ function List({ data}) {
 
 
   return (
-    <div className=" bg-white/65 max-w-xl rounded-lg shadow-lg bg-white p-10">
-      <div className="cart flex items-center">
-        <img className="rounded-full h-16 w-16" src={data.avatar_url} alt="User Avatar" />
+    <div id='content' className=" bg-white/65   rounded-lg shadow-lg bg-white p-10">
+      <div id='cart' className="flex items-center">
+        <img
+        className="rounded-full h-16 w-16" 
+        src={data.avatar_url}
+        alt="User Avatar" />
         <div className="ml-4">
           <h2 className="text-xl font-bold">{data.name}</h2>
           <p className="text-gray-500">@{data.login}</p>
           
         </div>
-        <div className='text-gray-600' style={{marginLeft: 'auto'}}>
+        <div id='github' className='text-gray-600' style={{marginLeft: 'auto'}}>
         <FontAwesomeIcon icon={faGithub}/>
-        <a href={data.html_url}
- 
-        className="text-gray-800 underline underline-offset-1">GitHub</a>
+        <a href={data.html_url} 
+        className="ml-1 text-gray-800 underline underline-offset-1">GitHub</a>
         </div>
       </div>
-      <p className="mt-4 text-gray-700">
+      <p id='bio' className="mt-4 text-gray-700">
         {data.bio }
       </p>
-      <div className="mt-6 flex justify-between text-gray-600">
+      <div id='icon' className="mt-6 flex justify-between text-gray-600">
         <span><FontAwesomeIcon icon={faMapMarkerAlt} /> {data.location || "No location"}</span>
         <span><FontAwesomeIcon icon={faUsers} /> {data.followers} Followers</span>
         <span><FontAwesomeIcon icon={faUserPlus} /> {data.following} Following</span>
@@ -133,7 +135,7 @@ function List({ data}) {
       }} >Repositories</h3>
       {
         data.repos.length > 0 ? (
-            <ul className='repo  text-gray-700'>
+            <ul id='repos' className='repo  text-gray-700'>
                 {
                 data.repos && data.repos.map((repo) => (
                     <li key={repo.id} className='hover:list-disc '>

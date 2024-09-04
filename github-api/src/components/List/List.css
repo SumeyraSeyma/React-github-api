@@ -7,6 +7,8 @@
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
+    min-width: 500px;
+    z-index: 2;
 }
 
 .transparent {
@@ -15,8 +17,63 @@
     border-radius: 8px;
   }
   
-  .cart {
+  #cart {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
+  #content{
+    min-width: 600px;
+    max-width: 36rem;
+    z-index: 2;
+    
+  }
+
+@media (max-width: 767px) {
+    #cart {
+      min-width: 60px;
+      flex-direction: column;
+      filter: none;
+      z-index: 2;
+
+    }
+    
+
+    #repos{
+        min-width: 30px;
+        min-height: 30px;
+    }
+
+    #icon{
+      flex-direction: column;
+    }
+
+    #bio{
+      flex-direction: column;
+    }
+
+    #github{
+      flex-direction: column;
+      margin-right: 70px;
+    }
+
+    body::before{
+      filter: none;
+      z-index: -1;
+    }
+
+    #content{
+      min-width: 80px;
+      min-height: 30px;
+      max-width: 19rem;
+      max-height: 30rem;
+      filter: none;
+      z-index: 2;
+      opacity: 1;
+      overflow-y: auto;
+    }
+
+
+
+  
+}

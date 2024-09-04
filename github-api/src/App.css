@@ -29,20 +29,40 @@ body > * {
   z-index: 1; /* İçerikleri bulanık arka planın üstünde tutar */
 }
 
-.buttons{
+#header{
   border: 1px solid #f9f9f9;
   background-color: rgba(249, 249, 249, 0.65); 
   padding: 10px; 
   border-radius: 8px;
 }
 
-.input_search{
+#input_search{
   background-color: #f9f9f9;
   position: relative;
   z-index: 1;
 }
 
-.search_button{
+#search_button{
   position: relative;
   z-index: 1;
+}
+
+#header{
+  min-width: 600px;
+}
+
+@media (max-width: 767px) {
+  #header{
+    min-width: 300px;
+  }
+
+  #input_search{
+    width: 200px;
+  }
+
+  #search_button{
+    width: 60px;
+    height: 40px;
+    font-size: 0.55rem;
+  }
 }
