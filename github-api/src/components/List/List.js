@@ -12,7 +12,7 @@ function List({ data}) {
     if ( !data ) {
         return <div> No data </div>
     }else if (data.login === undefined) {
-        return <div> No user data </div>
+        return <div className='text-base text-gray-600 '> No user data </div>
     }
 
     const langColors = {
@@ -95,8 +95,8 @@ function List({ data}) {
 
 
   return (
-    <div className="max-w-xl rounded-lg shadow-lg bg-white p-10">
-      <div className="flex items-center">
+    <div className=" bg-white/65 max-w-xl rounded-lg shadow-lg bg-white p-10">
+      <div className="cart flex items-center">
         <img className="rounded-full h-16 w-16" src={data.avatar_url} alt="User Avatar" />
         <div className="ml-4">
           <h2 className="text-xl font-bold">{data.name}</h2>
@@ -120,7 +120,7 @@ function List({ data}) {
         <span>
         <FontAwesomeIcon icon={faTwitter}/>
           {data.twitter_username ? (
-            <a href={`https://twitter.com/${data.twitter_username}`} target="_blank" rel="noopener noreferrer"> {data.twitter_username}
+            <a href={`https://twitter.com/${data.twitter_username}`} className='text-gray-800 underline underline-offset-1' target="_blank" rel="noopener noreferrer"> {data.twitter_username}
             </a>
           ) : (
              " No Twitter"

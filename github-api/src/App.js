@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App my-10 ">
       <div 
-      className='buttons shadow-lg max-w-xl flex justify-center items-center p-4 rounded-md h-16 '>
+      className='buttons shadow-lg max-w-xl flex justify-center items-center p-4 mb-6 rounded-md h-16 '>
       <input 
       type="text" 
       placeholder="Enter Github Username" 
