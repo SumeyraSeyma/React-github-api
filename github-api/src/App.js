@@ -48,7 +48,7 @@ function App() {
       className='buttons shadow-lg max-w-xl flex justify-center items-center p-4 rounded-md h-16 '>
       <input 
       type="text" 
-      placeholder="Search for User" 
+      placeholder="Enter Github Username" 
       onChange={(e) => setUser(e.target.value)} 
       className="input_search border p-2 rounded-lg h-10 w-80 " />
       <button 

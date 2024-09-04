@@ -3,6 +3,10 @@
     list-style-position: inside;
     font-style: italic;
     background-color: #f9f9f9;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     
 }
 

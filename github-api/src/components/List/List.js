@@ -128,12 +128,12 @@ function List({ data}) {
         </span>
       </div>
               
-      <h3 className='mb-3 mt-3 font-semibold underline decoration-blue-950 text-gray-800' style={{
+      <h3 className='mb-3 mt-3  font-semibold underline decoration-blue-950 text-gray-800' style={{
         fontStyle: 'italic',
       }} >Repositories</h3>
       {
         data.repos.length > 0 ? (
-            <ul className='repo text-gray-700'>
+            <ul className='repo  text-gray-700'>
                 {
                 data.repos && data.repos.map((repo) => (
                     <li key={repo.id} className='hover:list-disc '>
