@@ -3,6 +3,8 @@ import './App.css';
 import List from './components/List/List';
 import './output.css';
 import './components/List/List.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -12,6 +14,29 @@ function App() {
 
 
     const getData = () => {
+      if (user === '') {
+        toast.error('Please enter a username', {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else if (user.trim() === '') {
+        toast.error('Please enter a valid username', {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    
+
       const token = process.env.REACT_APP_GITHUB_TOKEN;
       Promise.all([
       fetch(`https://api.github.com/users/${user}`,{
@@ -37,7 +62,7 @@ function App() {
 
 
   useEffect(() => {
-    if (user) {
+    if (user){
       getData();
     }
   }, [user]);
@@ -47,6 +72,7 @@ function App() {
     <div
     id='App' 
     className=" my-10 ">
+      <ToastContainer />
       <div
       id='header' 
       className='shadow-lg flex justify-center items-center p-4 mb-6 rounded-md h-16 '>
