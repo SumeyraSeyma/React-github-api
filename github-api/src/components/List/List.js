@@ -141,7 +141,7 @@ function List({ data}) {
                     <li key={repo.id} >
                       <span>
                       <span id='name' className='flex'>
-                    <a className='hover:underline underline hover:decoration-blue-950' href={repo.html_url}>• {repo.name}</a>
+                    <a className='hover:underline hover:decoration-blue-950' href={repo.html_url}>• {repo.name}</a>
                     <span>
                       
                     {
