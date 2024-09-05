@@ -8,7 +8,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 500px;
-    z-index: 2;
+    z-index: 1;
 
 }
 
@@ -20,13 +20,13 @@
   
   #cart {
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
 
   #content{
     min-width: 600px;
     max-width: 36rem;
-    z-index: 2;
+    z-index: 1;
     
   }
 
@@ -35,7 +35,7 @@
       min-width: 60px;
       flex-direction: column;
       filter: none;
-      z-index: 2;
+      z-index: 1;
 
     }
     
@@ -47,7 +47,7 @@
 
     #repos > * {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       opacity: 1;
     }
 
@@ -75,18 +75,69 @@
       max-width: 19rem;
       max-height: 30rem;
       filter: none;
-      z-index: 2;
+      z-index: 1;
       opacity: 1;
       overflow-y: auto;
     }
 
     #content > * {
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    #cart {
+      min-width: 300px;
+      flex-direction: row;
+      filter: none;
+      z-index: 1;
+    }
+
+    #repos{
+        min-width: 500px;
+        min-height: 150px;
+        max-height: 600px;
+    }
+
+    #repos > * {
+      position: relative;
+      z-index: 1;
       opacity: 1;
     }
 
+    #icon{
+      flex-direction: row;
+    }
 
+    #bio{
+      flex-direction: row;
+    }
 
-  
+    #github{
+      flex-direction: row;
+      margin-right: 0px;
+    }
+
+    body::before{
+      filter: none;
+      z-index: -1;
+    }
+
+    #content{
+      min-width: 700px;
+      max-width: 36rem;
+      min-height: 50rem;
+      filter: none;
+      z-index: 1;
+      opacity: 1;
+      overflow-y: auto;
+    }
+
+    #content > * {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+    }
 }
