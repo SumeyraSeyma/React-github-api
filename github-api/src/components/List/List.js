@@ -14,10 +14,14 @@ function List({ data, currentPage, setCurrentPage }) {
   useEffect(() => {
     const updateResposPerPage = () => {
       if (window.innerWidth < 768) {
-        setReposPerPage(1);
-        
-      } else if (window.innerWidth < 1024) {
         setReposPerPage(2);
+        
+      } else if (window.innerWidth < 1024 ) {
+        setReposPerPage(8);
+      } else if (window.innerWidth == 1024 && window.innerHeight == 1366) {
+        setReposPerPage(10);
+      } else if (window.innerWidth < 1280 && window.innerWidth > 1024) {
+        setReposPerPage(10);
       } else {
         setReposPerPage(3);
       }

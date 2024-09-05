@@ -55,10 +55,11 @@ function App() {
         ...userData, // Kullanıcı verileri
         repos: userRepos // Repos'ları `data` prop'u içinde birleştiriyoruz
       });
+      setCurrentPage(1);
     })
     .catch((error) => console.error('Error fetching data:', error));
 
-    setCurrentPage(1);
+    
   }
 
 
