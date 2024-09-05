@@ -8,7 +8,6 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 500px;
-    z-index: 1;
 
 }
 
@@ -20,13 +19,12 @@
   
   #cart {
     position: relative;
-    z-index: 1;
   }
 
   #content{
     min-width: 600px;
     max-width: 36rem;
-    z-index: 1;
+
     
   }
 
@@ -34,9 +32,6 @@
     #cart {
       min-width: 60px;
       flex-direction: column;
-      filter: none;
-      z-index: 1;
-
     }
     
 
@@ -45,11 +40,6 @@
         min-height: 30px;
     }
 
-    #repos > * {
-      position: relative;
-      z-index: 1;
-      opacity: 1;
-    }
 
     #icon{
       flex-direction: column;
@@ -64,35 +54,19 @@
       margin-right: 70px;
     }
 
-    body::before{
-      filter: none;
-      z-index: -1;
-    }
-
     #content{
       min-width: 80px;
       min-height: 30px;
       max-width: 19rem;
       max-height: 30rem;
-      filter: none;
-      z-index: 1;
-      opacity: 1;
       overflow-y: auto;
-    }
-
-    #content > * {
-      position: relative;
-      z-index: 1;
-      opacity: 1;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     #cart {
       min-width: 300px;
       flex-direction: row;
-      filter: none;
-      z-index: 1;
     }
 
     #repos{
@@ -101,10 +75,39 @@
         max-height: 600px;
     }
 
-    #repos > * {
-      position: relative;
-      z-index: 1;
-      opacity: 1;
+
+    #icon{
+      flex-direction: row;
+    }
+
+    #bio{
+      flex-direction: row;
+    }
+
+    #github{
+      flex-direction: row;
+      margin-right: 0px;
+    }
+
+
+    #content{
+      min-width: 700px;
+      max-width: 36rem;
+      min-height: 50rem;
+      overflow-y: auto;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    #cart {
+      min-width: 300px;
+      flex-direction: row;
+    }
+
+    #repos{
+        min-width: 500px;
+        min-height: 100px;
+        max-height: 690px;
     }
 
     #icon{
@@ -120,24 +123,43 @@
       margin-right: 0px;
     }
 
-    body::before{
-      filter: none;
-      z-index: -1;
+    #content{
+      min-width: 700px;
+      max-width: 50rem;
+      min-height: 60rem;
+      overflow-y: auto;
+    }
+}
+
+@media (orientation: landscape) {
+    #cart {
+      min-width: 300px;
+      flex-direction: row;
+    }
+
+    #repos{
+        min-width: 500px;
+        min-height: 100px;
+        max-height: 240px;
+    }
+
+    #icon{
+      flex-direction: row;
+    }
+
+    #bio{
+      flex-direction: row;
+    }
+
+    #github{
+      flex-direction: row;
+      margin-right: 0px;
     }
 
     #content{
       min-width: 700px;
       max-width: 36rem;
-      min-height: 50rem;
-      filter: none;
-      z-index: 1;
-      opacity: 1;
+      min-height: 30rem;
       overflow-y: auto;
-    }
-
-    #content > * {
-      position: relative;
-      z-index: 1;
-      opacity: 1;
     }
 }
