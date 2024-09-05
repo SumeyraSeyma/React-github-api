@@ -61,12 +61,6 @@ function App() {
 
 
 
-  useEffect(() => {
-    if (user){
-      getData();
-    }
-  }, [user]);
-
 
   return (
     <div
@@ -81,7 +75,7 @@ function App() {
       placeholder="Enter Github Username" 
       onChange={(e) => setUser(e.target.value)}
       id='input_search' 
-      className=" border p-2 rounded-lg h-10 w-80 " />
+      className=" border p-2 rounded-lg h-10 w-96 " />
       <button 
       onClick={getData}
       id='search_button' 

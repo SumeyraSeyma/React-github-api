@@ -138,10 +138,11 @@ function List({ data}) {
             <ul id='repos' className=' text-gray-700'>
                 {
                 data.repos && data.repos.map((repo) => (
-                    <li key={repo.id} className='hover:list-disc '>
-                    <a className='hover:underline hover:decoration-blue-950' href={repo.html_url}>{repo.name}</a>
-                    <p className='bg-red-100'>{repo.description}</p>
-                    <p>
+                    <li key={repo.id} >
+                      <span>
+                      <span id='name' className='flex'>
+                    <a className='hover:underline underline hover:decoration-blue-950' href={repo.html_url}>{repo.name}</a>
+                    <span>
                       
                     {
                       repo.language && (
@@ -150,7 +151,12 @@ function List({ data}) {
                         
                       )
                     }
-                    </p>
+                    </span>
+                    </span>
+                    <p className='bg-red-100'>{repo.description}</p>
+                    
+                    </span>
+                    <p className='bg-gray-200 m-1 h-1'></p>
                     </li>
                 ))
                 }

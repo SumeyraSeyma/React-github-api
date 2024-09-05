@@ -1,6 +1,4 @@
 #repos{
-    list-style-type: circle;
-    list-style-position: inside;
     font-style: italic;
     background-color: #f9f9f9;
     max-height: 300px;
@@ -23,8 +21,13 @@
 
   #content{
     min-width: 600px;
-    max-width: 36rem;
+    max-width: 65rem;
   }
+
+  #name{
+    justify-content: space-between;
+  }
+
 
 
 @media (max-width: 767px) {
@@ -71,7 +74,7 @@
     #repos{
         min-width: 500px;
         min-height: 150px;
-        max-height: 600px;
+        max-height: 700px;
     }
 
 
@@ -91,7 +94,7 @@
 
     #content{
       min-width: 700px;
-      max-width: 36rem;
+      max-width: 40rem;
       min-height: 50rem;
       overflow-y: auto;
     }
@@ -130,7 +133,7 @@
     }
 }
 
-@media (orientation: landscape) {
+@media ( width:1024px) and (height:600px) {
     #cart {
       min-width: 300px;
       flex-direction: row;
