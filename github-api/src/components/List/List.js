@@ -5,9 +5,12 @@ import { faMapMarkerAlt, faUsers, faUserPlus } from '@fortawesome/free-solid-svg
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 
 function List({ data}) {
+  const[currentPage, setCurrentPage] = useState(1);
+  const reposPerPage = 3;
 
     if ( !data ) {
         return <div> No data </div>
@@ -93,6 +96,30 @@ function List({ data}) {
       Idris: '#b30000'
     };
 
+    const indexOfLastRepo = currentPage * reposPerPage;
+    const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+    const currentRepos = data.repos.slice(indexOfFirstRepo, indexOfLastRepo);
+
+    const totalPages = Math.ceil(data.repos.length / reposPerPage);
+
+    const nextPage = () => {
+      if (currentPage < totalPages) {
+        setCurrentPage(currentPage + 1);
+      }
+    };
+
+    const prevPage = () => {
+      if (currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+      }
+    };
+
+    const truncateText = (text, limit) => {
+      if (text && text.length > limit) {
+        return text.substring(0, limit) + '...';
+      }
+      return text;
+    };
 
   return (
     <div id='content' className=" bg-white/65   rounded-lg shadow-lg bg-white p-10">
@@ -137,7 +164,7 @@ function List({ data}) {
         data.repos.length > 0 ? (
             <ul id='repos' className=' text-gray-700'>
                 {
-                data.repos && data.repos.map((repo) => (
+                currentRepos.map((repo) => (
                     <li key={repo.id} >
                       <span>
                       <span id='name' className='flex'>
@@ -153,7 +180,7 @@ function List({ data}) {
                     }
                     </span>
                     </span>
-                    <p className='bg-red-100'>{repo.description}</p>
+                    <p className='bg-red-100'>{truncateText(repo.description, 100)}</p>
                     
                     </span>
                     <p className='bg-gray-200 m-1 h-1'></p>
@@ -165,6 +192,23 @@ function List({ data}) {
             <div>No Repositories</div>
         )
       }
+
+      
+        
+      {
+        data.repos.length > 0 && (
+          <div id='prevnext' className='mt-4'>
+            <button id='prev' onClick={prevPage} disabled={currentPage === 1} className="bg-blue-950 text-white px-4 py-2 rounded-lg disabled:opacity-50">
+              Previous
+            </button>
+            <span className="mx-2 italic">Page {currentPage} of {totalPages}</span>
+            <button id='next' onClick={nextPage} disabled={currentPage === totalPages} className="px-6 py-2 bg-blue-950 text-white rounded-lg disabled:opacity-50">
+              Next
+            </button>
+          </div>
+        )
+      }
+      
     </div>
     
   );
