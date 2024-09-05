@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [data, setData] = useState([]);
   const [user, setUser] = useState('');
-
+  const [currentPage, setCurrentPage] = useState(1);
 
     const getData = () => {
       if (user === '') {
@@ -57,6 +57,8 @@ function App() {
       });
     })
     .catch((error) => console.error('Error fetching data:', error));
+
+    setCurrentPage(1);
   }
 
 
@@ -82,7 +84,7 @@ function App() {
       className=" bg-blue-950 text-white p-2 ml-2 rounded-lg ">
         Search Github</button>
       </div>
-      <List data={data} />
+      <List data={data} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

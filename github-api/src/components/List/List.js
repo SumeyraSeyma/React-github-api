@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './List.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faUsers, faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,9 +8,29 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 
-function List({ data}) {
-  const[currentPage, setCurrentPage] = useState(1);
-  const reposPerPage = 3;
+function List({ data, currentPage, setCurrentPage }) {
+  const [reposPerPage, setReposPerPage] = useState(3);
+
+  useEffect(() => {
+    const updateResposPerPage = () => {
+      if (window.innerWidth < 768) {
+        setReposPerPage(1);
+        
+      } else if (window.innerWidth < 1024) {
+        setReposPerPage(2);
+      } else {
+        setReposPerPage(3);
+      }
+    };
+
+    updateResposPerPage();
+
+    // Pencere boyutları değiştiğinde tetikleme
+    window.addEventListener('resize', updateResposPerPage);
+
+    // Component unmount olduğunda event listener'ı kaldır
+    return () => window.removeEventListener('resize', updateResposPerPage);
+  }, []);
 
     if ( !data ) {
         return <div> No data </div>
@@ -201,7 +221,7 @@ function List({ data}) {
             <button id='prev' onClick={prevPage} disabled={currentPage === 1} className="bg-blue-950 text-white px-4 py-2 rounded-lg disabled:opacity-50">
               Previous
             </button>
-            <span className="mx-2 italic">Page {currentPage} of {totalPages}</span>
+            <span id='page' className="mx-2 italic">Page {currentPage} of {totalPages}</span>
             <button id='next' onClick={nextPage} disabled={currentPage === totalPages} className="px-6 py-2 bg-blue-950 text-white rounded-lg disabled:opacity-50">
               Next
             </button>
