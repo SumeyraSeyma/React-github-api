@@ -146,7 +146,7 @@ function List({ data}) {
                       
                     {
                       repo.language && (
-                        <span className='ml-2'> <FontAwesomeIcon icon={faCircle} style={{color: langColors[repo.language] || '#0000' , fontSize: '0.7rem'
+                        <span className='ml-2'> <FontAwesomeIcon icon={faCircle} style={{color: langColors[repo.language] || '#000000' , fontSize: '0.7rem'
                         }}/>{repo.language}</span>
                         
                       )
