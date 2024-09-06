@@ -15,7 +15,7 @@ function List({ data, currentPage, setCurrentPage }) {
   useEffect(() => {
     const updateResposPerPage = () => {
       if (window.innerWidth < 768) {
-        setReposPerPage(2);
+        setReposPerPage(5);
         setDescLimit(25);
         
       } else if (window.innerWidth < 1024 ) {
@@ -28,7 +28,7 @@ function List({ data, currentPage, setCurrentPage }) {
         setReposPerPage(10);
         setDescLimit(100);
       } else {
-        setReposPerPage(2);
+        setReposPerPage(5);
         setDescLimit(100);
       }
     };

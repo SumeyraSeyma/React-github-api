@@ -5,7 +5,8 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 500px;
-    max-height: 210px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 
@@ -17,11 +18,13 @@
   
   #cart {
     position: relative;
+    overflow-y: auto;
   }
 
   #content{
     min-width: 60rem;
     max-width: 65rem;
+    max-height: 35rem;
   }
 
   ul#repos li:last-child {
@@ -39,7 +42,7 @@
     #repos{
         min-width: 30px;
         min-height: 10px;
-        max-height: 280px;
+        max-height: 600px;
         overflow: hidden;
         word-break: break-word;
     }
