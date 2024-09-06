@@ -5,7 +5,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 500px;
-    max-height: 200px;
+    max-height: 210px;
 }
 
 
@@ -24,12 +24,9 @@
     max-width: 65rem;
   }
 
-  #name{
-    justify-content: space-between;
+  ul#repos li:last-child {
+    border-bottom: none;
   }
-
-  
-
 
 
 @media (max-width: 767px) {

@@ -10,20 +10,26 @@ import { useState } from 'react';
 
 function List({ data, currentPage, setCurrentPage }) {
   const [reposPerPage, setReposPerPage] = useState(3);
+  const [descLimit, setDescLimit] = useState(100);
 
   useEffect(() => {
     const updateResposPerPage = () => {
       if (window.innerWidth < 768) {
         setReposPerPage(2);
+        setDescLimit(25);
         
       } else if (window.innerWidth < 1024 ) {
-        setReposPerPage(8);
+        setReposPerPage(5);
+        setDescLimit(100);
       } else if (window.innerWidth == 1024 && window.innerHeight == 1366) {
-        setReposPerPage(10);
+        setReposPerPage(6);
+        setDescLimit(100);
       } else if (window.innerWidth < 1280 && window.innerWidth > 1024) {
         setReposPerPage(10);
+        setDescLimit(100);
       } else {
-        setReposPerPage(3);
+        setReposPerPage(2);
+        setDescLimit(100);
       }
     };
 
@@ -189,25 +195,24 @@ function List({ data, currentPage, setCurrentPage }) {
             <ul id='repos' className=' text-gray-700'>
                 {
                 currentRepos.map((repo) => (
-                    <li key={repo.id} >
-                      <span>
-                      <span id='name' className='flex'>
-                    <a className='hover:underline hover:decoration-blue-950' href={repo.html_url}>• {repo.name}</a>
-                    <span>
+                    <li key={repo.id} className='mb-2 p-3 border-b-2 border-gray-200' >
+                    
+                      <div>
+                    <a className='text-lg font-medium  hover:underline hover:decoration-blue-950' href={repo.html_url}>{repo.name}</a>
+                    <div>
                       
                     {
                       repo.language && (
-                        <span className='ml-2'> <FontAwesomeIcon icon={faCircle} style={{color: langColors[repo.language] || '#000000' , fontSize: '0.7rem'
-                        }}/>{repo.language}</span>
+                        <div className='ml-2'> <FontAwesomeIcon icon={faCircle} style={{color: langColors[repo.language] || '#000000' , fontSize: '0.7rem'
+                        }}/>{repo.language}</div>
                         
                       )
                     }
-                    </span>
-                    </span>
-                    <p className='bg-red-100'>{truncateText(repo.description, 100)}</p>
+                    </div>
+                    </div>
+                    <p className='bg-red-100'>{truncateText(repo.description, descLimit)}</p>
                     
-                    </span>
-                    <p className='bg-gray-200 m-1 h-1'></p>
+                    
                     </li>
                 ))
                 }
