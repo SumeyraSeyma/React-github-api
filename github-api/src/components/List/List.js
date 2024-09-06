@@ -5,12 +5,15 @@ import { faMapMarkerAlt, faUsers, faUserPlus } from '@fortawesome/free-solid-svg
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 
 function List({ data, currentPage, setCurrentPage }) {
   const [reposPerPage, setReposPerPage] = useState(3);
   const [descLimit, setDescLimit] = useState(100);
+
+
+  const listRef = useRef(null);
 
   useEffect(() => {
     const updateResposPerPage = () => {
@@ -135,12 +138,20 @@ function List({ data, currentPage, setCurrentPage }) {
     const nextPage = () => {
       if (currentPage < totalPages) {
         setCurrentPage(currentPage + 1);
+        if (listRef.current) {
+          listRef.current.scrollTop = 0;
+        }
+
       }
     };
 
     const prevPage = () => {
       if (currentPage > 1) {
         setCurrentPage(currentPage - 1);
+        if (listRef.current) {
+          listRef.current.scrollTop = 0;
+        }
+
       }
     };
 
@@ -192,7 +203,7 @@ function List({ data, currentPage, setCurrentPage }) {
       }} >Repositories</h3>
       {
         data.repos.length > 0 ? (
-            <ul id='repos' className=' text-gray-700'>
+            <ul id='repos' ref={listRef} className=' text-gray-700'>
                 {
                 currentRepos.map((repo) => (
                     <li key={repo.id} className='mb-2 p-3 border-b-2 border-gray-200' >
